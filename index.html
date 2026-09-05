@@ -56,13 +56,13 @@ h1{font-size:34px;line-height:1.05;margin:6px 0 8px;letter-spacing:-.04em}
 .mini-route{width:100%;height:82px}
 .nav-all{display:inline-block;margin-top:6px;color:var(--accent);font-weight:600;font-size:13px}
 .timeline{margin-top:15px}
-.event{display:grid;grid-template-columns:76px 1fr;gap:12px;position:relative;padding:0 0 16px}
-.event:before{content:"";position:absolute;left:75px;top:6px;bottom:-2px;border-left:1px solid var(--line)}
+.event{display:grid;grid-template-columns:92px minmax(0,1fr);gap:24px;position:relative;padding:0 0 16px}
+.event:before{content:"";position:absolute;left:104px;top:6px;bottom:-2px;border-left:1px solid var(--line)}
 .event:last-child:before{display:none}
-.time{text-align:right;font-variant-numeric:tabular-nums;font-size:13px;font-weight:700}
+.time{padding-right:4px;text-align:left;font-variant-numeric:tabular-nums;font-size:13px;font-weight:700}
 .tz{display:block;color:var(--muted);font-size:10px;font-weight:500}
-.detail{padding-left:12px}
-.detail:before{content:"";position:absolute;width:8px;height:8px;border-radius:50%;background:var(--accent);left:72px;top:6px;transform:translateX(-50%)}
+.detail{min-width:0;padding-left:0}
+.detail:before{content:"";position:absolute;width:8px;height:8px;border-radius:50%;background:var(--accent);left:105px;top:6px;transform:translateX(-50%)}
 .detail b{display:block;font-size:14px}
 .detail p{margin:3px 0;color:var(--muted);font-size:12px}
 .confirmed{color:var(--ok);font-size:11px;font-weight:700}
@@ -70,6 +70,10 @@ h1{font-size:34px;line-height:1.05;margin:6px 0 8px;letter-spacing:-.04em}
 .place{color:var(--accent);font-weight:600}
 .todo{margin:0;padding-left:20px}
 .todo li{margin:9px 0}
+.checklist{list-style:none;padding-left:0}
+.checklist label{display:flex;align-items:flex-start;gap:10px;cursor:pointer}
+.checklist input{flex:0 0 auto;width:18px;height:18px;margin:3px 0 0;accent-color:var(--ok)}
+.checklist input:checked + span{text-decoration:line-through;color:var(--muted)}
 .tip-grid{display:grid;grid-template-columns:1fr;gap:10px}
 .tip{border:1px solid var(--line);border-radius:16px;padding:12px}
 .tip b{font-size:13px}.tip p{font-size:12px;color:var(--muted);margin:5px 0 0}
@@ -317,20 +321,20 @@ h1{font-size:34px;line-height:1.05;margin:6px 0 8px;letter-spacing:-.04em}
   </section>
   <p class="small">井盖卡以当日库存和发放情况为准；风景印请在邮便窗口办理，出发前确认盖印受理情况。</p>
 
-  <div class="section-title"><h2>待办清单</h2><small>纯列表，不做勾选</small></div>
+  <div class="section-title"><h2>待办清单</h2><small>可勾选 · 自动保存在本机</small></div>
   <section class="card">
-    <ul class="todo">
-      <li>确认 9/12 晚餐最终选「博多本店」还是「筑紫口店」。</li>
-      <li>9/13 出发前复核阪九 Ferry 小仓站免费接驳巴士当日运行状态。</li>
-      <li>9/13 前确认海峡プラザ「キュリアス倶楽部」福冈限定 Sanrio Pin 是否仍有库存。</li>
-      <li>9/14 神户 Port Tower 周边若未发现兵库限定 Pin，不为此专程绕路；若9/15本来去姬路，再去官方销售点。</li>
-      <li>9/18 出发前再查一次大阪限定 Pin 最新销售/目击位置。</li>
-      <li>9/20 出发前确认 Sogo 横滨的横滨限定 Pin 近期是否仍有目击。</li>
-      <li>9/16 出发前确认和歌山东横INN Pin 是否有库存、是否对非住客销售。</li>
-      <li>9/17 Bridge World 前确认天气、活动是否因强风/雷雨取消。</li>
-      <li>9/19 提前决定大件行李寄存在新大阪哪里；不要散场后回心斋桥取箱。</li>
-      <li>9/19 演出前再次确认 NOZOMI 60 20:48 发车及电子票/IC卡绑定。</li>
-      <li>9/21 前一晚完成值机，确认羽田 T2 国际出发区域与早班交通。</li>
+    <ul class="todo checklist">
+      <li><label><input type="checkbox" data-todo-id="japan-2026-1"><span class="todo-text">确认 9/12 晚餐最终选「博多本店」还是「筑紫口店」。</span></label></li>
+      <li><label><input type="checkbox" data-todo-id="japan-2026-2"><span class="todo-text">9/13 出发前复核阪九 Ferry 小仓站免费接驳巴士当日运行状态。</span></label></li>
+      <li><label><input type="checkbox" data-todo-id="japan-2026-3"><span class="todo-text">9/13 前确认海峡プラザ「キュリアス倶楽部」福冈限定 Sanrio Pin 是否仍有库存。</span></label></li>
+      <li><label><input type="checkbox" data-todo-id="japan-2026-4"><span class="todo-text">9/14 神户 Port Tower 周边若未发现兵库限定 Pin，不为此专程绕路；若9/15本来去姬路，再去官方销售点。</span></label></li>
+      <li><label><input type="checkbox" data-todo-id="japan-2026-5"><span class="todo-text">9/18 出发前再查一次大阪限定 Pin 最新销售/目击位置。</span></label></li>
+      <li><label><input type="checkbox" data-todo-id="japan-2026-6"><span class="todo-text">9/20 出发前确认 Sogo 横滨的横滨限定 Pin 近期是否仍有目击。</span></label></li>
+      <li><label><input type="checkbox" data-todo-id="japan-2026-7"><span class="todo-text">9/16 出发前确认和歌山东横INN Pin 是否有库存、是否对非住客销售。</span></label></li>
+      <li><label><input type="checkbox" data-todo-id="japan-2026-8"><span class="todo-text">9/17 Bridge World 前确认天气、活动是否因强风/雷雨取消。</span></label></li>
+      <li><label><input type="checkbox" data-todo-id="japan-2026-9"><span class="todo-text">9/19 提前决定大件行李寄存在新大阪哪里；不要散场后回心斋桥取箱。</span></label></li>
+      <li><label><input type="checkbox" data-todo-id="japan-2026-10"><span class="todo-text">9/19 演出前再次确认 NOZOMI 60 20:48 发车及电子票/IC卡绑定。</span></label></li>
+      <li><label><input type="checkbox" data-todo-id="japan-2026-11"><span class="todo-text">9/21 前一晚完成值机，确认羽田 T2 国际出发区域与早班交通。</span></label></li>
     </ul>
   </section>
 
@@ -401,12 +405,27 @@ document.querySelectorAll(".route-toggle").forEach(btn=>{
   });
 });
 
+// Keep checklist state independent of editable text and other browser storage.
+document.querySelectorAll(".checklist input").forEach(input=>{
+  const key="japan-trip:todo:"+input.dataset.todoId;
+  try{
+    const saved=localStorage.getItem(key);
+    if(saved!==null) input.checked=saved==="true";
+  }catch(e){}
+  const sync=()=>input.toggleAttribute("checked",input.checked);
+  sync();
+  input.addEventListener("change",()=>{
+    sync();
+    try{localStorage.setItem(key,String(input.checked));}catch(e){}
+  });
+});
+
 let editing=false;
 const editBtn=document.getElementById("editBtn");
 const exportBtn=document.getElementById("exportBtn");
 editBtn.addEventListener("click",()=>{
   editing=!editing;
-  document.querySelectorAll(".day-title,.day-note,.detail b,.detail p,.todo li,.tip p").forEach(el=>el.contentEditable=editing);
+  document.querySelectorAll(".day-title,.day-note,.detail b,.detail p,.todo:not(.checklist) li,.todo-text,.tip p").forEach(el=>el.contentEditable=editing);
   editBtn.textContent=editing?"完成编辑":"编辑文字";
   exportBtn.style.display=editing?"inline-block":"none";
 });
